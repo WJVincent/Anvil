@@ -31,7 +31,6 @@ export const signup = ({ username, email, password }) => async (dispatch) => {
 };
 
 export const login = ({ credentials, password }) => async (dispatch) => {
-  console.log({ credentials, password });
   const response = await fetch("/api/session", {
     method: "POST",
     body: JSON.stringify({ credentials, password }),
