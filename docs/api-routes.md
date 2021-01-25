@@ -33,6 +33,7 @@ DESCRIPTION GOES HERE
   Retrieves the users notebooks and notes, so that they can be accessed by the logged in user.
 
 - ### `POST -> /api/user`
+  Creates a user and logs in that user if successful in its creation.
 
 ---
 
@@ -40,10 +41,30 @@ DESCRIPTION GOES HERE
 
 ---
 
----
+- ### `GET -> /api/notebook/`
+
+  Retrieves the notebooks of the logged in user.
+
+- ### `POST -> /api/notebook`
+
+  Creates a new notebook associated with the logged in user.
+
+- ### `PUT -> /api/notebook/:id`
+  Edits a preexisting notebook of the logged in user.
 
 ## Note Routes
 
 ---
+
+- ### `GET -> /api/note/:id`
+
+  Retrieves a specific note for the user.
+
+- ### `POST -> /api/note/:id`
+
+  Creates a new note in a specifc notebook
+
+- ### `PUT -> /api/note/:id`
+  Edit a specific note for the user.
 
 ---
