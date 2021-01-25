@@ -9,7 +9,7 @@ const { User } = require("../../db/models");
 const { setTokenCookie } = require("../../utils/auth.js");
 
 router.use("/session", sessionRouter);
-router.use("/users", usersRouter);
+router.use("/user", usersRouter);
 
 router.get(
   "/set-token-cookie",
