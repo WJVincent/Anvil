@@ -26,7 +26,6 @@ const createFolder = (folder) => ({
 
 export const getUserInfo = (userId) => async (dispatch) => {
   const response = await fetch(`/api/user/${userId}`);
-  console.log("RESPONSE FROM FETCH ---->", response.data);
   dispatch(setContent(response.data));
 };
 
@@ -41,7 +40,6 @@ export const createUserFolder = ({ name, userId, categoryId }) => async (
     method: "POST",
     body: JSON.stringify({ name, userId, categoryId }),
   });
-  console.log(response.data.newFolder);
   dispatch(createFolder(response.data.newFolder));
 };
 

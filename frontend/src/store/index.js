@@ -3,10 +3,12 @@ import thunk from "redux-thunk";
 
 import sessionReducer from "./reducers/session";
 import userInfoReducer from "./reducers/userInfo";
+import categoryReducer from "./reducers/categories";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   userInfo: userInfoReducer,
+  categories: categoryReducer,
 });
 
 const envSelection = () => {
