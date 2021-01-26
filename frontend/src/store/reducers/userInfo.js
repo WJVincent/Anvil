@@ -1,7 +1,7 @@
 import fetch from "../csrf";
 
 const initialState = {
-  content: null,
+  content: { Folders: [] },
 };
 
 const SET_CONTENT = "userInfo/setContent";
@@ -40,7 +40,7 @@ export const createUserFolder = ({ name, userId, categoryId }) => async (
     method: "POST",
     body: JSON.stringify({ name, userId, categoryId }),
   });
-  dispatch(createFolder(response.data.newFolder));
+  dispatch(createFolder(response.data));
 };
 
 const userInfoReducer = (state = initialState, action) => {
@@ -52,7 +52,10 @@ const userInfoReducer = (state = initialState, action) => {
       const begoneUserInfo = Object.assign({}, { content: null });
       return begoneUserInfo;
     case CREATE_FOLDER:
-      const newUserInfoState = [...state.content.Folders, action.folder];
+      const newUserInfoState = {
+        ...state,
+        Folders: [...state.content.Folders, action.folder],
+      };
       return newUserInfoState;
     default:
       return state;

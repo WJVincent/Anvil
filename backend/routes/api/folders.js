@@ -17,7 +17,7 @@ router.post(
       userId,
       categoryId,
     });
-    res.send(newFolder);
+    res.json(newFolder);
   })
 );
 

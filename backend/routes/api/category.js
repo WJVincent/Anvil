@@ -8,7 +8,7 @@ router.get(
   "/",
   asyncHandler(async (req, res) => {
     const categories = await Category.findAll();
-    res.send(categories);
+    res.json(categories);
   })
 );
 

@@ -38,7 +38,7 @@ router.get(
         },
       ],
     });
-    res.send(userInfo);
+    res.json(userInfo);
   })
 );
 
