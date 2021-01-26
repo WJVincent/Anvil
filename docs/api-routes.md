@@ -37,20 +37,25 @@ DESCRIPTION GOES HERE
 
 ---
 
-## Notebook Routes
+## Folder Routes
 
 ---
 
-- ### `GET -> /api/notebook/`
+- ### `GET -> /api/folder/:id`
 
-  Retrieves the notebooks of the logged in user.
+  Retrieves all of the notes contained in a specific folder.
 
-- ### `POST -> /api/notebook`
+- ### `POST -> /api/folder`
 
   Creates a new notebook associated with the logged in user.
 
-- ### `PUT -> /api/notebook/:id`
+- ### `PUT -> /api/folder/:id`
+
   Edits a preexisting notebook of the logged in user.
+
+- ### `DELETE -> /api/folder/:id`
+
+  Deletes a notebook associated with the logged in user
 
 ## Note Routes
 

@@ -1,6 +1,6 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const { setTokenCookie, requireAuth } = require("../../utils/auth");
+const { setTokenCookie } = require("../../utils/auth");
 const {
   User,
   Folder,
@@ -38,7 +38,6 @@ router.get(
         },
       ],
     });
-    console.log("api response -------->", userInfo);
     res.send(userInfo);
   })
 );
