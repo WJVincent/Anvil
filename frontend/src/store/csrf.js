@@ -1,9 +1,5 @@
 import Cookies from "js-cookie";
 
-export function restoreCSRF() {
-  return fetch("/api/csrf/restore");
-}
-
 const fetch = async (url, options = {}) => {
   options.method = options.method || "GET";
   options.headers = options.headers || {};
@@ -24,6 +20,10 @@ const fetch = async (url, options = {}) => {
   if (res.status >= 400) throw res;
 
   return res;
+};
+
+export const restoreCSRF = () => {
+  return fetch("/api/csrf/restore");
 };
 
 export default fetch;

@@ -6,6 +6,8 @@ import { BrowserRouter } from "react-router-dom";
 import configureStore from "./store";
 import fetch, { restoreCSRF } from "./store/csrf";
 import * as sessionActions from "./store/reducers/session";
+import * as userActions from "./store/reducers/userInfo";
+import * as categoryActions from "./store/reducers/categories";
 
 import ModalProvider from "./context/ModalProvider";
 
@@ -19,6 +21,8 @@ if (process.env.NODE_ENV !== "production") {
   window.csrfFetch = fetch;
   window.store = store;
   window.sessionActions = sessionActions;
+  window.userActions = userActions;
+  window.categoryActions = categoryActions;
 }
 
 const Root = () => {
