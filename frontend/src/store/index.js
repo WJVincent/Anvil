@@ -2,9 +2,11 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 
 import sessionReducer from "./reducers/session";
+import userInfoReducer from "./reducers/userInfo";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
+  userInfo: userInfoReducer,
 });
 
 const envSelection = () => {

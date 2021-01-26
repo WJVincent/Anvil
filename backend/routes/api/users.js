@@ -38,6 +38,7 @@ router.get(
         },
       ],
     });
+    console.log("api response -------->", userInfo);
     res.send(userInfo);
   })
 );
