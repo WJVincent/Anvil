@@ -12,8 +12,6 @@ const HomePage = () => {
 
   const sessionUserInfo = useSelector((state) => state.userInfo.content);
 
-  console.log("currentUserInfo -----> ", sessionUserInfo);
-
   return (
     <div>
       <ul>
