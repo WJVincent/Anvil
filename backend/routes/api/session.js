@@ -9,7 +9,6 @@ const router = express.Router();
 
 router.get("/", restoreUser, (req, res) => {
   const { user, userData } = req;
-  console.log(userData);
   if (user) {
     return res.json({
       user: user.toSafeObject(),

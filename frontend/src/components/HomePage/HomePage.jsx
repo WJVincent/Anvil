@@ -18,7 +18,6 @@ const HomePage = () => {
 
   return (
     <div>
-      {console.log("inside of component return", sessionUserInfo)}
       <ul>
         {sessionUserInfo &&
           sessionUserInfo.content.Folders.map((folder) => (
