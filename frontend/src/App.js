@@ -2,37 +2,45 @@ import { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import * as sessionActions from "./store/reducers/session";
+import * as SessionActions from "./store/reducers/session";
+import * as UserActions from "./store/reducers/userInfo";
 import {
-  SignupFormPage,
+  UserSignupForm,
   Navigation,
   HomePage,
   NewFolderForm,
+  EditFolderForm,
 } from "./components";
 
 function App() {
   const dispatch = useDispatch();
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [userLoaded, setUserLoaded] = useState(false);
+  const [contentLoaded, setContentLoaded] = useState(false);
+
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(SessionActions.restoreUser()).then(() => setUserLoaded(true));
+    dispatch(UserActions.restoreUserInfo()).then(() => setContentLoaded(true));
   }, [dispatch]);
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
+      <Navigation isLoaded={userLoaded} />
+      {userLoaded && contentLoaded && (
         <Switch>
           <Route exact path="/">
             <h1>Hello World</h1>
           </Route>
           <Route path="/signup">
-            <SignupFormPage />
+            <UserSignupForm />
           </Route>
           <Route path="/home">
             <HomePage />
           </Route>
           <Route path="/folder/new">
             <NewFolderForm />
+          </Route>
+          <Route path="/folder/edit/:id">
+            <EditFolderForm />
           </Route>
           <Route>
             <h1>404 Not Found</h1>

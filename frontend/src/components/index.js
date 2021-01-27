@@ -1,6 +1,5 @@
-import SignupFormPage from "./SignupFormPage";
 import Navigation from "./Navigation";
 import HomePage from "./HomePage";
-import { NewFolderForm } from "./Forms";
+import { NewFolderForm, EditFolderForm, UserSignupForm } from "./Forms";
 
-export { SignupFormPage, Navigation, HomePage, NewFolderForm };
+export { Navigation, HomePage, NewFolderForm, EditFolderForm, UserSignupForm };

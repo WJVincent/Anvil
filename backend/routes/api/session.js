@@ -8,10 +8,12 @@ const validateLogin = require("../../utils/validators/validateLogin");
 const router = express.Router();
 
 router.get("/", restoreUser, (req, res) => {
-  const { user } = req;
+  const { user, userData } = req;
+  console.log(userData);
   if (user) {
     return res.json({
       user: user.toSafeObject(),
+      userData,
     });
   } else return res.json({});
 });

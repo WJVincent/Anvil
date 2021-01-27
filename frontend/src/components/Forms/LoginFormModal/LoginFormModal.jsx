@@ -1,22 +1,25 @@
 import { useState } from "react";
-import * as sessionActions from "../../../store/reducers/session";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import * as sessionActions from "../../../store/reducers/session";
 
 function LoginForm() {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [credentials, setCredentials] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ credentials, password })).catch(
+    await dispatch(sessionActions.login({ credentials, password })).catch(
       (res) => {
         if (res.data && res.data.errors) setErrors(res.data.errors);
       }
     );
+    history.push("/home");
   };
 
   return (

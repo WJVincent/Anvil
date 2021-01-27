@@ -34,7 +34,7 @@ const NewFolderForm = () => {
 
   return (
     <div>
-      <h1>New Folder Form</h1>
+      <h1>Create Folder</h1>
       <form onSubmit={onSubmit}>
         <input
           type="text"

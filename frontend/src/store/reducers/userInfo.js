@@ -10,18 +10,25 @@ const REMOVE_CONTENT = "userInfo/removeContent";
 
 const CREATE_FOLDER = "userInfo/createFolder";
 
-const setContent = (content) => ({
+const EDIT_FOLDER = "userInfo/editFolder";
+
+const setContent = (userContent) => ({
   type: SET_CONTENT,
-  content,
+  userContent,
 });
 
 const removeContent = () => ({
   type: REMOVE_CONTENT,
 });
 
-const createFolder = (folder) => ({
+const createFolder = (newFolder) => ({
   type: CREATE_FOLDER,
-  folder,
+  newFolder,
+});
+
+const editFolder = (updatedFolders) => ({
+  type: EDIT_FOLDER,
+  updatedFolders,
 });
 
 export const getUserInfo = (userId) => async (dispatch) => {
@@ -43,20 +50,45 @@ export const createUserFolder = ({ name, userId, categoryId }) => async (
   dispatch(createFolder(response.data));
 };
 
+export const editUserFolder = ({
+  name,
+  userId,
+  categoryId,
+  folderId,
+}) => async (dispatch) => {
+  const response = await fetch(`/api/folder/${folderId}`, {
+    method: "PUT",
+    body: JSON.stringify({ name, userId, categoryId }),
+  });
+  dispatch(editFolder(response.data));
+};
+
+export const restoreUserInfo = () => async (dispatch) => {
+  const response = await fetch("/api/session");
+  dispatch(setContent(response.data.userData));
+  return response;
+};
+
 const userInfoReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CONTENT:
-      const newUserInfo = Object.assign({}, { content: action.content });
+      const newUserInfo = Object.assign({}, { content: action.userContent });
       return newUserInfo;
     case REMOVE_CONTENT:
       const begoneUserInfo = Object.assign({}, { content: null });
       return begoneUserInfo;
     case CREATE_FOLDER:
-      const newUserInfoState = {
+      const newFolderState = {
         ...state,
-        Folders: [...state.content.Folders, action.folder],
+        Folders: [...state.content.Folders, action.newFolder],
       };
-      return newUserInfoState;
+      return newFolderState;
+    case EDIT_FOLDER:
+      const editFolderState = {
+        ...state,
+        Folders: [...action.updatedFolders],
+      };
+      return editFolderState;
     default:
       return state;
   }

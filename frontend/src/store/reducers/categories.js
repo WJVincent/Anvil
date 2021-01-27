@@ -1,7 +1,7 @@
 import fetch from "../csrf";
 
 const initialState = {
-  categories: null,
+  categories: [],
 };
 
 const SET_CATEGORIES = "categories/setCategories";
