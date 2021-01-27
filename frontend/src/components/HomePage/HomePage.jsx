@@ -6,8 +6,6 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const sessionUserInfo = useSelector((state) => state.userInfo);
-  const testSelection = useSelector((state) => state.userInfo);
-  console.log("test selection ---->", testSelection);
 
   const SubmitDelete = (folderId) => {
     dispatch(

@@ -89,7 +89,10 @@ const userInfoReducer = (state = initialState, action) => {
     case CREATE_FOLDER:
       const newFolderState = {
         ...state,
-        Folders: [...state.content.Folders, action.newFolder],
+        content: {
+          ...state.content,
+          Folders: [...state.content.Folders, action.newFolder],
+        },
       };
       return newFolderState;
     case EDIT_FOLDER:
