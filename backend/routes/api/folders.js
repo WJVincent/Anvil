@@ -42,4 +42,19 @@ router.put(
   })
 );
 
+router.delete(
+  "/:id",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const folderId = await parseInt(req.params.id, 10);
+    const { userId } = req.body;
+
+    const folder = await Folder.findByPk(folderId);
+    await folder.destroy();
+
+    const folders = await Folder.findAll({ where: { userId: Number(userId) } });
+    res.json(folders);
+  })
+);
+
 module.exports = router;

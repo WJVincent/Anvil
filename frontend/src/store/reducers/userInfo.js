@@ -63,6 +63,15 @@ export const editUserFolder = ({
   dispatch(editFolder(response.data));
 };
 
+export const deleteUserFolder = ({ userId, folderId }) => async (dispatch) => {
+  const response = await fetch(`/api/folder/${folderId}`, {
+    method: "DELETE",
+    body: JSON.stringify({ userId }),
+  });
+  dispatch(editFolder(response.data));
+  return response.data;
+};
+
 export const restoreUserInfo = () => async (dispatch) => {
   const response = await fetch("/api/session");
   dispatch(setContent(response.data.userData));
@@ -86,7 +95,7 @@ const userInfoReducer = (state = initialState, action) => {
     case EDIT_FOLDER:
       const editFolderState = {
         ...state,
-        Folders: [...action.updatedFolders],
+        content: { ...state.content, Folders: [...action.updatedFolders] },
       };
       return editFolderState;
     default:
