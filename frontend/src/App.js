@@ -10,6 +10,7 @@ import {
   HomePage,
   NewFolderForm,
   EditFolderForm,
+  LandingPage,
 } from "./components";
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
       {userLoaded && contentLoaded && (
         <Switch>
           <Route exact path="/">
-            <h1>Hello World</h1>
+            <LandingPage />
           </Route>
           <Route path="/signup">
             <UserSignupForm />

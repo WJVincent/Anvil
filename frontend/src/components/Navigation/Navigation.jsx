@@ -11,21 +11,26 @@ function Navigation({ isLoaded }) {
     sessionLinks = <ProfileButton user={sessionUser} />;
   } else {
     sessionLinks = (
-      <>
-        <LoginFormModal />
-        <button>
-          <Link style={{ textDecoration: "none" }} to="/signup">
-            Sign Up
-          </Link>
-        </button>
-      </>
+      <div className="text-accentOne flex p-2 pl-3">
+        <div>
+          <LoginFormModal />
+        </div>
+        <p className="pl-2"> | </p>
+        <div className="pl-2">
+          <button>
+            <Link to="/signup">Sign Up</Link>
+          </button>
+        </div>
+      </div>
     );
   }
 
   return (
-    <ul>
-      <li style={{ listStyle: "none" }}>{isLoaded && sessionLinks}</li>
-    </ul>
+    <div className="bg-secondary">
+      <ul>
+        <li>{isLoaded && sessionLinks}</li>
+      </ul>
+    </div>
   );
 }
 
