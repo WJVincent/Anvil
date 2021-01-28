@@ -9,6 +9,7 @@ module.exports = {
         accentOne: "#8be9fd", //cyan
         accentTwo: "#50fa7b", //green
         accentThree: "#bd93f9", //purple
+        modal: "rgba(0,0,0,0.7)",
       },
       animation: {
         "pulse-fast": "pulse 1s cubic-bezier(0, 0.4, 0.6, 1) infinite",

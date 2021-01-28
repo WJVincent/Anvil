@@ -1,25 +1,18 @@
+import CommandPrompt from "../CommandPrompt";
 const LandingPage = () => {
   return (
     <div className="bg-main bg-cover h-screen pl-3 pt-3">
-      <h1 className="font-mono text-2xl">
-        <span className="text-accentTwo">null@Anvil:</span>
-        <span className="text-accentThree">[/]$</span>
-        <span className="text-white text-xl">
-          {"  "}Where "Hello World" meets "It was a dark and stormy night."
-        </span>
-        <div className="bg-white w-2.5 h-5 animate-pulse-fast"></div>
-      </h1>
-      <div className="text-accentOne text-4xl m-auto pt-400">
-        <pre>
-          <code>{`
-  ░█████╗░███╗░░██╗██╗░░░██╗██╗██╗░░░░░
-  ██╔══██╗████╗░██║██║░░░██║██║██║░░░░░
-  ███████║██╔██╗██║╚██╗░██╔╝██║██║░░░░░
-  ██╔══██║██║╚████║░╚████╔╝░██║██║░░░░░
-  ██║░░██║██║░╚███║░░╚██╔╝░░██║███████╗
-  ╚═╝░░╚═╝╚═╝░░╚══╝░░░╚═╝░░░╚═╝╚══════╝
-      `}</code>
-        </pre>
+      <CommandPrompt />
+      <div className="flex flex-row max-w-3xl items-start ">
+        <img
+          src="https://anvil-file-bucket.s3.amazonaws.com/images/name-ascii.png"
+          alt="hidden"
+          className="pt-10 "
+        />
+        <img
+          src="https://anvil-file-bucket.s3.amazonaws.com/images/anvil-ascii.png"
+          alt="hidden"
+        />
       </div>
     </div>
   );
