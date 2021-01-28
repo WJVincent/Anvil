@@ -11,7 +11,7 @@ function Navigation({ isLoaded }) {
     sessionLinks = <ProfileButton user={sessionUser} />;
   } else {
     sessionLinks = (
-      <div className="text-accentOne flex p-2 pl-3">
+      <div className="text-accentOne text-xl flex p-2 pl-3">
         <div>
           <LoginFormModal />
         </div>
@@ -26,7 +26,7 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <div className="bg-secondary">
+    <div className="bg-secondary shadow-custom-shadow">
       <ul>
         <li>{isLoaded && sessionLinks}</li>
       </ul>
