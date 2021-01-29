@@ -12,6 +12,7 @@ module.exports = {
         accentOne: "#8be9fd", //cyan
         accentTwo: "#50fa7b", //green
         accentThree: "#bd93f9", //purple
+        accentFour: "#ff5555", //red
         secondTransparent: "rgba(68, 71, 90, 0)",
         secondTransparent2: "rgba(68, 71, 90, 0.4)",
         mainTransparent: "rgb(40,42,54, 0.7)",
@@ -25,7 +26,7 @@ module.exports = {
         teal: ["1px solid #8be9fd", "1px"],
       },
       gridTemplateRows: {
-        9: "repeat(12, minmax(0, 1fr))",
+        9: "repeat(13, minmax(0, 1fr))",
       },
     },
   },
