@@ -84,7 +84,7 @@ const userInfoReducer = (state = initialState, action) => {
       const newUserInfo = Object.assign({}, { content: action.userContent });
       return newUserInfo;
     case REMOVE_CONTENT:
-      const begoneUserInfo = Object.assign({}, { content: null });
+      const begoneUserInfo = Object.assign({}, { content: { Folders: [] } });
       return begoneUserInfo;
     case CREATE_FOLDER:
       const newFolderState = {
