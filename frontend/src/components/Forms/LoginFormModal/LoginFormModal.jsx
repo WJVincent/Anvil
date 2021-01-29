@@ -19,13 +19,13 @@ function LoginForm() {
         if (res.data && res.data.errors) setErrors(res.data.errors);
       }
     );
-    history.push("/home");
+    history.push("/");
   };
 
   return (
     <form
       id="login-form"
-      className="h-60 flex flex-col content-center justify-center"
+      className="h-60 flex bg-secondTransparent flex-col content-center justify-center"
       onSubmit={handleSubmit}
     >
       <ul>
@@ -34,7 +34,7 @@ function LoginForm() {
         ))}
       </ul>
       <input
-        className="bg-secondary text-2xl text-center pb-5 pt-5 text-accentOne"
+        className="bg-secondTransparent text-2xl text-center pb-5 pt-5 text-accentOne focus:outline-teal"
         style={{ width: "400px" }}
         type="text"
         value={credentials}
@@ -43,7 +43,8 @@ function LoginForm() {
         required
       />
       <input
-        className="bg-secondary text-2xl text-center mb-3 pb-5 pt-5 text-accentOne"
+        className="bg-secondTransparent text-2xl text-center mb-3 pb-5 pt-5 text-accentOne
+        focus:outline-teal"
         style={{ width: "400px" }}
         type="password"
         value={password}
@@ -51,7 +52,7 @@ function LoginForm() {
         placeholder="Password..."
         required
       />
-      <div className="bg-main transition duration-150 hover:ease-in-out transform hover:-translate-y-0.5 text-accentTwo text-lg w-20 h-12 m-auto rounded-md text-center p-2 shadow">
+      <div className="bg-mainTransparent transition duration-150 hover:ease-in-out transform hover:-translate-y-0.5 text-accentThree text-lg w-20 h-12 m-auto rounded-md text-center p-2 shadow">
         <button type="submit">Log In</button>
       </div>
     </form>

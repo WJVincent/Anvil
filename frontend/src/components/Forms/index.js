@@ -1,5 +1,5 @@
 import NewFolderForm from "./NewFolderForm";
 import EditFolderForm from "./EditFolderForm";
-import UserSignupForm from "./UserSignupForm";
+import UserSignupForm from "./SignupFormModal";
 
 export { NewFolderForm, EditFolderForm, UserSignupForm };
