@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as UserActions from "../../store/reducers/userInfo";
+import CommandPrompt from "../CommandPrompt";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const HomePage = () => {
 
   return (
     <div>
+      <CommandPrompt />
       <ul>
         {sessionUserInfo &&
           sessionUserInfo.content.Folders.map((folder) => (

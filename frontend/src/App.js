@@ -5,11 +5,11 @@ import { useDispatch } from "react-redux";
 import * as SessionActions from "./store/reducers/session";
 import * as UserActions from "./store/reducers/userInfo";
 import {
-  UserSignupForm,
   Navigation,
   HomePage,
   NewFolderForm,
   EditFolderForm,
+  LandingPage,
 } from "./components";
 
 function App() {
@@ -24,14 +24,11 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={userLoaded} />
       {userLoaded && contentLoaded && (
         <Switch>
           <Route exact path="/">
-            <h1>Hello World</h1>
-          </Route>
-          <Route path="/signup">
-            <UserSignupForm />
+            <Navigation isLoaded={userLoaded} />
+            <LandingPage />
           </Route>
           <Route path="/home">
             <HomePage />

@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../Forms/LoginFormModal";
+import SignupFormModal from "../Forms/SignupFormModal";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -11,21 +11,26 @@ function Navigation({ isLoaded }) {
     sessionLinks = <ProfileButton user={sessionUser} />;
   } else {
     sessionLinks = (
-      <>
-        <LoginFormModal />
-        <button>
-          <Link style={{ textDecoration: "none" }} to="/signup">
-            Sign Up
-          </Link>
-        </button>
-      </>
+      <div className="text-accentOne text-xl flex p-2 pl-3">
+        <div>
+          <LoginFormModal />
+        </div>
+        <p className="pl-2"> | </p>
+        <div className="pl-2">
+          <div>
+            <SignupFormModal />
+          </div>
+        </div>
+      </div>
     );
   }
 
   return (
-    <ul>
-      <li style={{ listStyle: "none" }}>{isLoaded && sessionLinks}</li>
-    </ul>
+    <div className="bg-secondary shadow-custom-shadow">
+      <ul>
+        <li>{isLoaded && sessionLinks}</li>
+      </ul>
+    </div>
   );
 }
 

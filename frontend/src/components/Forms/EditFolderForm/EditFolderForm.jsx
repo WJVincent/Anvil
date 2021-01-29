@@ -3,6 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as UserActions from "../../../store/reducers/userInfo";
 import * as CategoryActions from "../../../store/reducers/categories";
+import CommandPrompt from "../../CommandPrompt";
 
 const EditFolderForm = () => {
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ const EditFolderForm = () => {
 
   return (
     <div>
+      <CommandPrompt />
       <h1>Edit Folder</h1>
       {folder && (
         <form onSubmit={onSubmit}>
