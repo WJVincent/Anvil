@@ -10,6 +10,7 @@ module.exports = {
         accentTwo: "#50fa7b", //green
         accentThree: "#bd93f9", //purple
         secondTransparent: "rgba(68, 71, 90, 0)",
+        secondTransparent2: "rgba(68, 71, 90, 0.4)",
         mainTransparent: "rgb(40,42,54, 0.7)",
         modal: "rgba(0,0,0,0.7)",
       },
@@ -19,6 +20,9 @@ module.exports = {
       outline: {
         green: ["1px solid #50fa7b", "1px"],
         teal: ["1px solid #8be9fd", "1px"],
+      },
+      gridTemplateRows: {
+        9: "repeat(12, minmax(0, 1fr))",
       },
     },
   },

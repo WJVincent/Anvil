@@ -18,20 +18,30 @@ const HomePage = () => {
   };
 
   return (
-    <div>
-      <CommandPrompt />
-      <ul>
-        {sessionUserInfo &&
-          sessionUserInfo.content.Folders.map((folder) => (
-            <li key={folder.id}>
-              {folder.name} ::{" "}
-              <button>
-                <Link to={`/folder/edit/${folder.id}`}>Edit</Link>
-              </button>
-              <button onClick={() => SubmitDelete(folder.id)}>Delete</button>
-            </li>
-          ))}
-      </ul>
+    <div className="bg-main bg-cover h-screen grid grid-cols-7">
+      <div className="col-start-1 col-end-7 grid grid-rows-9">
+        <div className="row-start-1 row-end-2 pt-5 pl-5">
+          <CommandPrompt />
+        </div>
+        <div className="row-start-2 row-span-full bg-secondTransparent2 pl-5 mr-5 ml-5 mb-5">
+          <h1>Editor Goes Here</h1>
+        </div>
+      </div>
+
+      <div id="sideNav" className="bg-secondary h-screen col-start-7">
+        <ul>
+          {sessionUserInfo &&
+            sessionUserInfo.content.Folders.map((folder) => (
+              <li key={folder.id}>
+                {folder.name} ::{" "}
+                <button>
+                  <Link to={`/folder/edit/${folder.id}`}>Edit</Link>
+                </button>
+                <button onClick={() => SubmitDelete(folder.id)}>Delete</button>
+              </li>
+            ))}
+        </ul>
+      </div>
     </div>
   );
 };
