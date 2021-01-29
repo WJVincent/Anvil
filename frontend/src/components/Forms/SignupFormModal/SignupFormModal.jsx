@@ -32,7 +32,7 @@ const UserSignupForm = () => {
 
   return (
     <form
-      className="h-80 bg-secondTransparent flex flex-col content-center justify-center"
+      className="h-80 bg-secondTransparent flex flex-col content-center justify-center font-jetbrains"
       onSubmit={handleSubmit}
     >
       <ul>
@@ -43,20 +43,20 @@ const UserSignupForm = () => {
 
       <input
         type="text"
-        className="bg-secondTransparent text-2xl text-center pb-5 pt-5 text-accentOne focus:outline-teal"
+        className="bg-secondTransparent text-2xl text-left pl-3 pb-5 pt-5 text-accentOne outline-none placeholder-accentOne"
         value={email}
         style={{ width: "400px" }}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="email..."
+        placeholder=" => email"
         required
       />
       <input
         type="text"
         value={username}
         style={{ width: "400px" }}
-        className="bg-secondTransparent text-2xl text-center pb-5  text-accentOne focus:outline-teal "
+        className="bg-secondTransparent text-2xl text-left pl-3 pb-5 text-accentOne outline-none placeholder-accentOne"
         onChange={(e) => setUsername(e.target.value)}
-        placeholder="username..."
+        placeholder=" => username"
         required
       />
       <input
@@ -64,8 +64,8 @@ const UserSignupForm = () => {
         value={password}
         style={{ width: "400px" }}
         onChange={(e) => setPassword(e.target.value)}
-        className="bg-secondTransparent text-2xl text-center pb-5  text-accentOne focus:outline-teal"
-        placeholder="password..."
+        className="bg-secondTransparent text-2xl text-left pl-3 pb-5  text-accentOne outline-none placeholder-accentOne"
+        placeholder=" => password"
         required
       />
       <input
@@ -73,11 +73,11 @@ const UserSignupForm = () => {
         value={confirmPassword}
         style={{ width: "400px" }}
         onChange={(e) => setConfirmPassword(e.target.value)}
-        className="bg-secondTransparent text-2xl text-center pb-5  text-accentOne focus:outline-teal"
-        placeholder="confirm password..."
+        className="bg-secondTransparent text-2xl text-left pl-3 pb-5  text-accentOne outline-none placeholder-accentOne"
+        placeholder=" => confirm password"
         required
       />
-      <div className="bg-mainTransparent transition duration-150 hover:ease-in-out transform hover:-translate-y-0.5 text-accentThree text-lg w-20 h-12 m-auto rounded-md text-center p-2 shadow">
+      <div className="bg-accentThree transition duration-150 hover:ease-in-out transform hover:-translate-y-0.5 text-main text-xl font-bold w-25 h-12 m-auto rounded-md text-center p-2 shadow">
         <button type="submit">Sign Up</button>
       </div>
     </form>

@@ -17,7 +17,7 @@ const CommandPrompt = () => {
         );
         break;
       case "/home":
-        setPromptText('" ~/ sweet ~/ " : Windows users wouldn\'t understand.');
+        setPromptText('" ~/ sweet ~/ " => Windows users wouldn\'t understand.');
         break;
       default:
         setPromptText("something isn't right here....");
@@ -30,7 +30,7 @@ const CommandPrompt = () => {
   );
 
   return (
-    <h1 className="font-mono text-2xl flex flex-row pb-5">
+    <h1 className="font-jetbrains font-medium text-2xl flex flex-row pb-5">
       <span className="text-accentTwo">
         {username ? `${username}@Anvil:` : "null@Anvil:"}
       </span>

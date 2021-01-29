@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import * as UserActions from "../../store/reducers/userInfo";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDumpsterFire, faPenSquare } from "@fortawesome/free-solid-svg-icons";
+
 import CommandPrompt from "../CommandPrompt";
+import * as UserActions from "../../store/reducers/userInfo";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -20,7 +24,7 @@ const HomePage = () => {
   return (
     <div className="bg-main bg-cover h-screen grid grid-cols-7">
       <div className="col-start-1 col-end-7 grid grid-rows-9">
-        <div className="row-start-1 row-end-2 pt-5 pl-5">
+        <div className="row-start-1 row-end-2 pt-8 pl-5">
           <CommandPrompt />
         </div>
         <div className="row-start-2 row-span-full bg-secondTransparent2 pl-5 mr-5 ml-5 mb-5">
@@ -35,9 +39,13 @@ const HomePage = () => {
               <li key={folder.id}>
                 {folder.name} ::{" "}
                 <button>
-                  <Link to={`/folder/edit/${folder.id}`}>Edit</Link>
+                  <Link to={`/folder/edit/${folder.id}`}>
+                    <FontAwesomeIcon icon={faPenSquare} />
+                  </Link>
                 </button>
-                <button onClick={() => SubmitDelete(folder.id)}>Delete</button>
+                <button onClick={() => SubmitDelete(folder.id)}>
+                  <FontAwesomeIcon icon={faDumpsterFire} />
+                </button>
               </li>
             ))}
         </ul>

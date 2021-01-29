@@ -25,7 +25,7 @@ function LoginForm() {
   return (
     <form
       id="login-form"
-      className="h-60 flex bg-secondTransparent flex-col content-center justify-center"
+      className="h-60 flex bg-secondTransparent flex-col content-center justify-center font-jetbrains"
       onSubmit={handleSubmit}
     >
       <ul>
@@ -34,25 +34,25 @@ function LoginForm() {
         ))}
       </ul>
       <input
-        className="bg-secondTransparent text-2xl text-center pb-5 pt-5 text-accentOne focus:outline-teal"
+        className="bg-secondTransparent text-2xl text-left pl-3 pb-5 pt-5 text-accentOne outline-none placeholder-accentOne"
         style={{ width: "400px" }}
         type="text"
         value={credentials}
         onChange={(e) => setCredentials(e.target.value)}
-        placeholder="Username/Email..."
+        placeholder=" => username || email"
         required
       />
       <input
-        className="bg-secondTransparent text-2xl text-center mb-3 pb-5 pt-5 text-accentOne
-        focus:outline-teal"
+        className="bg-secondTransparent text-2xl text-left pl-3 mb-3 pb-5 pt-5 text-accentOne
+        outline-none placeholder-accentOne"
         style={{ width: "400px" }}
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password..."
+        placeholder=" => password"
         required
       />
-      <div className="bg-mainTransparent transition duration-150 hover:ease-in-out transform hover:-translate-y-0.5 text-accentThree text-lg w-20 h-12 m-auto rounded-md text-center p-2 shadow">
+      <div className="bg-accentThree transition duration-150 hover:ease-in-out transform hover:-translate-y-0.5 text-main text-xl font-bold w-25 h-12 m-auto rounded-md text-center p-2 shadow">
         <button type="submit">Log In</button>
       </div>
     </form>
