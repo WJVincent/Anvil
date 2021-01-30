@@ -47,10 +47,11 @@ const HomePage = () => {
         <div className="row-start-1 row-end-2 pt-8 pl-3 flex justify-between ml-10">
           <CommandPrompt location={location} setLocation={setLocation} />
           <div className="mr-10 pr-2">
-            <button className=" text-accentTwo text-3xl pr-3">
-              <Link to="/home">
-                <FontAwesomeIcon icon={faFileCode} />
-              </Link>
+            <button
+              disabled={true}
+              className=" text-accentTwo text-3xl pr-3 cursor-not-allowed "
+            >
+              <FontAwesomeIcon icon={faFileCode} />
             </button>
             <button
               className=" text-accentTwo text-3xl"

@@ -30,7 +30,7 @@ module.exports = {
         teal: ["1px solid #8be9fd", "1px"],
       },
       gridTemplateRows: {
-        9: "repeat(9, minmax(0, 1fr))",
+        9: "repeat(11, minmax(0, 1fr))",
       },
     },
   },
