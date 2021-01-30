@@ -8,7 +8,9 @@ import {
   faPenSquare,
   faFolderPlus,
   faFileCode,
+  faCodeBranch,
 } from "@fortawesome/free-solid-svg-icons";
+import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import CommandPrompt from "../CommandPrompt";
 import TextEditor from "../TextEditor";
@@ -94,6 +96,25 @@ const HomePage = () => {
             alt="Anvil"
           />
           <hr className=" m-auto" />
+
+          <div className="text-accentOne text-2xl flex justify-between">
+            <button>
+              <a href="https://www.linkedin.com/in/william-vincent-5658851ba/">
+                <FontAwesomeIcon icon={faLinkedin} />
+              </a>
+            </button>
+            <button>
+              <a href="https://github.com/WJVincent">
+                <FontAwesomeIcon icon={faGithub} />
+              </a>
+            </button>
+
+            <button>
+              <a href="https://github.com/WJVincent/Anvil">
+                <FontAwesomeIcon icon={faCodeBranch} />
+              </a>
+            </button>
+          </div>
         </div>
 
         <div>
