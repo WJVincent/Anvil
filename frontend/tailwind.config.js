@@ -5,6 +5,9 @@ module.exports = {
     fontFamily: {
       jetbrains: ["JetBrains Mono", "mono"],
     },
+    option: {
+      backgroundColor: "rgba(68, 71, 90, 0)",
+    },
     extend: {
       colors: {
         main: "#282a36", //dark blue-gray
@@ -15,6 +18,7 @@ module.exports = {
         accentFour: "#ff5555", //red
         secondTransparent: "rgba(68, 71, 90, 0)",
         secondTransparent2: "rgba(68, 71, 90, 0.4)",
+        secondTransparent3: "rgba(68, 71, 90, 0.8)",
         mainTransparent: "rgb(40,42,54, 0.7)",
         modal: "rgba(0,0,0,0.7)",
       },
@@ -26,7 +30,7 @@ module.exports = {
         teal: ["1px solid #8be9fd", "1px"],
       },
       gridTemplateRows: {
-        9: "repeat(13, minmax(0, 1fr))",
+        9: "repeat(9, minmax(0, 1fr))",
       },
     },
   },

@@ -33,13 +33,15 @@ const HomePage = () => {
         <div className="row-start-1 row-end-2 pt-8 pl-7">
           <CommandPrompt location={location} setLocation={setLocation} />
         </div>
-        <div className="row-start-2 row-span-full bg-secondTransparent2 pl-5 mr-10 ml-10 mb-10 shadow-md">
+        <div className=" flex justify-center items-center row-start-2 row-span-full bg-secondTransparent2 pl-5 mr-10 ml-10 mb-10 shadow-md ">
           <Switch>
             <Route exact path="/home">
               <TextEditor />
             </Route>
             <Route path="/home/folder/edit/:id">
-              <EditFolderForm />
+              <div>
+                <EditFolderForm />
+              </div>
             </Route>
           </Switch>
         </div>
@@ -67,10 +69,10 @@ const HomePage = () => {
                   key={folder.id}
                   className=" flex flex-row font-jetbrainstext text-xl text-accentOne"
                 >
-                  <p className="pr-3">{`> ${folder.name}`}</p>
+                  <p className="pr-2">{`> ${folder.name}`}</p>
                   <div className="text-2xl">
                     <button
-                      className="pr-2 text-accentTwo"
+                      className="pr-1 text-accentTwo"
                       onClick={() => setLocation(window.location.pathname)}
                     >
                       <Link to={`/home/folder/edit/${folder.id}`}>
@@ -79,7 +81,7 @@ const HomePage = () => {
                     </button>
                     <button
                       onClick={() => SubmitDelete(folder.id)}
-                      className="pl-2 text-accentFour"
+                      className="pl-1 text-accentFour"
                     >
                       <FontAwesomeIcon icon={faDumpsterFire} />
                     </button>

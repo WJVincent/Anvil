@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "@tailwindcss/custom-forms": "^0.2.1",
     "redux-logger": "^3.0.6"
   }
 }

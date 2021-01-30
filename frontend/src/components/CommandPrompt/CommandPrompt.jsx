@@ -6,13 +6,6 @@ const CommandPrompt = ({ location, setLocation }) => {
   const [promptText, setPromptText] = useState("");
 
   useEffect(() => {
-    const regex = /\/home\/folder\/edit\/\d+/;
-    // console.log("regex test ---> ", String(location.match(regex)[0]));
-
-    // if (regex.test(location)) {
-    //   return setPromptText(" mv folder newFolder ...");
-    // }
-
     switch (location) {
       case "/":
         setPromptText(
