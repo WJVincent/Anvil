@@ -9,6 +9,7 @@ import CommandPrompt from "../CommandPrompt";
 import TextEditor from "../TextEditor";
 import EditFolderForm from "../Forms/EditFolderForm";
 import * as UserActions from "../../store/reducers/userInfo";
+import * as SessionActions from "../../store/reducers/session";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,13 @@ const HomePage = () => {
         folderId: folderId,
       })
     );
+  };
+
+  const logout = (e) => {
+    e.preventDefault();
+    dispatch(SessionActions.logout());
+    dispatch(UserActions.removeUserInfo());
+    history.push("/");
   };
 
   return (
@@ -61,6 +69,7 @@ const HomePage = () => {
           />
           <hr className=" m-auto" />
         </div>
+
         <div>
           <ul className=" flex flex-col pl-5">
             {sessionUserInfo &&
@@ -70,25 +79,36 @@ const HomePage = () => {
                   className=" flex flex-row font-jetbrainstext text-xl text-accentOne"
                 >
                   <p className="pr-2">{`> ${folder.name}`}</p>
-                  <div className="text-2xl">
-                    <button
-                      className="pr-1 text-accentTwo"
-                      onClick={() => setLocation(window.location.pathname)}
-                    >
-                      <Link to={`/home/folder/edit/${folder.id}`}>
-                        <FontAwesomeIcon icon={faPenSquare} />
-                      </Link>
-                    </button>
-                    <button
-                      onClick={() => SubmitDelete(folder.id)}
-                      className="pl-1 text-accentFour"
-                    >
-                      <FontAwesomeIcon icon={faDumpsterFire} />
-                    </button>
-                  </div>
+
+                  <button
+                    className="pr-1 text-accentTwo"
+                    onClick={() => setLocation(window.location.pathname)}
+                  >
+                    <Link to={`/home/folder/edit/${folder.id}`}>
+                      <FontAwesomeIcon icon={faPenSquare} />
+                    </Link>
+                  </button>
+
+                  <button
+                    onClick={() => SubmitDelete(folder.id)}
+                    className="pl-1 text-accentFour"
+                  >
+                    <FontAwesomeIcon icon={faDumpsterFire} />
+                  </button>
                 </li>
               ))}
           </ul>
+        </div>
+
+        <div className="row-start-6 row-span-1 m-auto">
+          <div>
+            <button
+              className="bg-accentThree transition duration-150 hover:ease-in-out transform hover:-translate-y-0.5 text-main text-xl font-bold w-25 h-12 m-auto rounded-md text-center p-2 shadow"
+              onClick={logout}
+            >
+              Log Out
+            </button>
+          </div>
         </div>
       </div>
     </div>
