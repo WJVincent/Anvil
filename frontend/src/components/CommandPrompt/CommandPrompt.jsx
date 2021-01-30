@@ -15,6 +15,9 @@ const CommandPrompt = ({ location, setLocation }) => {
       case String(location.match(/\/home\/folder\/edit\/\d+/)):
         setPromptText(" sudo mv folder-name new-folder-name ");
         break;
+      case "/home/folder/new":
+        setPromptText("mkdir new-folder");
+        break;
       case "/home":
         setPromptText(
           ' ~/ sweet ~/  => echo "Windows users wouldn\'t understand"'

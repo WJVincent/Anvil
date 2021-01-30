@@ -3,12 +3,19 @@ import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDumpsterFire, faPenSquare } from "@fortawesome/free-solid-svg-icons";
+import {
+  faDumpsterFire,
+  faPenSquare,
+  faFolderPlus,
+  faFileCode,
+} from "@fortawesome/free-solid-svg-icons";
 
 import CommandPrompt from "../CommandPrompt";
 import TextEditor from "../TextEditor";
 import EditFolderForm from "../Forms/EditFolderForm";
+import NewFolderForm from "../Forms/NewFolderForm";
 import * as UserActions from "../../store/reducers/userInfo";
+import * as SessionActions from "../../store/reducers/session";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -27,12 +34,36 @@ const HomePage = () => {
     );
   };
 
+  const logout = (e) => {
+    e.preventDefault();
+    dispatch(SessionActions.logout());
+    dispatch(UserActions.removeUserInfo());
+    history.push("/");
+  };
+
   return (
     <div className="bg-main bg-cover h-screen grid grid-cols-7">
       <div className="col-start-1 col-end-7 grid grid-rows-9">
-        <div className="row-start-1 row-end-2 pt-8 pl-7">
+        <div className="row-start-1 row-end-2 pt-8 pl-3 flex justify-between ml-10">
           <CommandPrompt location={location} setLocation={setLocation} />
+          <div className="mr-10 pr-2">
+            <button
+              disabled={true}
+              className=" text-accentTwo text-3xl pr-3 cursor-not-allowed "
+            >
+              <FontAwesomeIcon icon={faFileCode} />
+            </button>
+            <button
+              className=" text-accentTwo text-3xl"
+              onClick={() => setLocation(window.location.pathname)}
+            >
+              <Link to="/home/folder/new">
+                <FontAwesomeIcon icon={faFolderPlus} />
+              </Link>
+            </button>
+          </div>
         </div>
+
         <div className=" flex justify-center items-center row-start-2 row-span-full bg-secondTransparent2 pl-5 mr-10 ml-10 mb-10 shadow-md ">
           <Switch>
             <Route exact path="/home">
@@ -42,6 +73,9 @@ const HomePage = () => {
               <div>
                 <EditFolderForm />
               </div>
+            </Route>
+            <Route path="/home/folder/new">
+              <NewFolderForm />
             </Route>
           </Switch>
         </div>
@@ -61,6 +95,7 @@ const HomePage = () => {
           />
           <hr className=" m-auto" />
         </div>
+
         <div>
           <ul className=" flex flex-col pl-5">
             {sessionUserInfo &&
@@ -70,25 +105,36 @@ const HomePage = () => {
                   className=" flex flex-row font-jetbrainstext text-xl text-accentOne"
                 >
                   <p className="pr-2">{`> ${folder.name}`}</p>
-                  <div className="text-2xl">
-                    <button
-                      className="pr-1 text-accentTwo"
-                      onClick={() => setLocation(window.location.pathname)}
-                    >
-                      <Link to={`/home/folder/edit/${folder.id}`}>
-                        <FontAwesomeIcon icon={faPenSquare} />
-                      </Link>
-                    </button>
-                    <button
-                      onClick={() => SubmitDelete(folder.id)}
-                      className="pl-1 text-accentFour"
-                    >
-                      <FontAwesomeIcon icon={faDumpsterFire} />
-                    </button>
-                  </div>
+
+                  <button
+                    className="pr-1 text-accentTwo"
+                    onClick={() => setLocation(window.location.pathname)}
+                  >
+                    <Link to={`/home/folder/edit/${folder.id}`}>
+                      <FontAwesomeIcon icon={faPenSquare} />
+                    </Link>
+                  </button>
+
+                  <button
+                    onClick={() => SubmitDelete(folder.id)}
+                    className="pl-1 text-accentFour"
+                  >
+                    <FontAwesomeIcon icon={faDumpsterFire} />
+                  </button>
                 </li>
               ))}
           </ul>
+        </div>
+
+        <div className="row-start-6 row-span-1 m-auto">
+          <div>
+            <button
+              className="bg-accentThree transition duration-150 hover:ease-in-out transform hover:-translate-y-0.5 text-main text-xl font-bold w-25 h-12 m-auto rounded-md text-center p-2 shadow"
+              onClick={logout}
+            >
+              Log Out
+            </button>
+          </div>
         </div>
       </div>
     </div>
