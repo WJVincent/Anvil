@@ -21,4 +21,5 @@
 #modal-content {
   position: absolute;
   background-color: rgba(68, 71, 90, 0.6);
+  border: 1px solid #bd93f9;
 }
