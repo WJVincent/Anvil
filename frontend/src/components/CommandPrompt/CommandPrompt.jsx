@@ -1,23 +1,31 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-const CommandPrompt = () => {
-  const [location, setLocation] = useState(window.location.pathname);
+const CommandPrompt = ({ location, setLocation }) => {
   const [promptText, setPromptText] = useState("");
 
   useEffect(() => {
-    setLocation(window.location.pathname);
-  }, []);
+    const regex = /\/home\/folder\/edit\/\d+/;
+    // console.log("regex test ---> ", String(location.match(regex)[0]));
 
-  useEffect(() => {
+    // if (regex.test(location)) {
+    //   return setPromptText(" mv folder newFolder ...");
+    // }
+
     switch (location) {
       case "/":
         setPromptText(
           'Where "Hello World" meets "It was a dark and stormy night."'
         );
         break;
+      case String(location.match(/\/home\/folder\/edit\/\d+/)):
+        setPromptText(" sudo mv folder-name new-folder-name ");
+        break;
       case "/home":
-        setPromptText('" ~/ sweet ~/ " => Windows users wouldn\'t understand.');
+        setPromptText(
+          ' ~/ sweet ~/  => echo "Windows users wouldn\'t understand"'
+        );
         break;
       default:
         setPromptText("something isn't right here....");
@@ -32,7 +40,18 @@ const CommandPrompt = () => {
   return (
     <h1 className="font-jetbrains font-medium text-2xl flex flex-row pb-5">
       <span className="text-accentTwo">
-        {username ? `${username}@Anvil:` : "null@Anvil:"}
+        {location !== "/" ? (
+          <Link
+            to={username ? "/home" : "/"}
+            onClick={() => setLocation("/home")}
+          >
+            {username ? `${username}@Anvil:` : "null@Anvil:"}
+          </Link>
+        ) : username ? (
+          `${username}@Anvil:`
+        ) : (
+          "null@Anvil:"
+        )}
       </span>
       <span className="text-accentThree">[{location}]$</span>
       <span className="text-white text-xl pl-3">

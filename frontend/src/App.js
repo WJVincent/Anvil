@@ -4,13 +4,7 @@ import { useDispatch } from "react-redux";
 
 import * as SessionActions from "./store/reducers/session";
 import * as UserActions from "./store/reducers/userInfo";
-import {
-  Navigation,
-  HomePage,
-  NewFolderForm,
-  EditFolderForm,
-  LandingPage,
-} from "./components";
+import { Navigation, HomePage, NewFolderForm, LandingPage } from "./components";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,9 +29,6 @@ function App() {
           </Route>
           <Route path="/folder/new">
             <NewFolderForm />
-          </Route>
-          <Route path="/folder/edit/:id">
-            <EditFolderForm />
           </Route>
           <Route>
             <h1>404 Not Found</h1>
