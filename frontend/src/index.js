@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import configureStore from "./store";
 import fetch, { restoreCSRF } from "./store/csrf";
+
 import * as sessionActions from "./store/reducers/session";
 import * as userActions from "./store/reducers/userInfo";
 import * as categoryActions from "./store/reducers/categories";

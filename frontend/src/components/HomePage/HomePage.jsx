@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDumpsterFire,
@@ -10,12 +11,12 @@ import {
   faFileCode,
   faCodeBranch,
 } from "@fortawesome/free-solid-svg-icons";
+
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import CommandPrompt from "../CommandPrompt";
-import EditFolderForm from "../Forms/EditFolderForm";
-import NewFolderForm from "../Forms/NewFolderForm";
-import TextEditor from "../Editor";
+import { EditFolderForm, NewFolderForm } from "../Forms";
+import TextEditor from "./Editor";
 
 import * as UserActions from "../../store/reducers/userInfo";
 import * as SessionActions from "../../store/reducers/session";

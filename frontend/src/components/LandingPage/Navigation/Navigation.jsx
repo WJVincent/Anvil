@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import LoginFormModal from "../Forms/LoginFormModal";
-import SignupFormModal from "../Forms/SignupFormModal";
-import * as SessionActions from "../../store/reducers/session";
-import * as UserActions from "../../store/reducers/userInfo";
+
+import { LoginForm, SignupForm } from "../../Forms";
+
+import * as SessionActions from "../../../store/reducers/session";
+import * as UserActions from "../../../store/reducers/userInfo";
 
 function Navigation({ isLoaded }) {
   const dispatch = useDispatch();
@@ -51,13 +52,13 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <div className="text-accentOne text-xl flex p-2 pl-3">
         <div>
-          <LoginFormModal />
+          <LoginForm />
         </div>
 
         <p className="pl-2"> | </p>
 
         <div className="pl-2">
-          <SignupFormModal />
+          <SignupForm />
         </div>
 
         <p className="pl-2"> | </p>
