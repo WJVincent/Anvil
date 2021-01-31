@@ -1,5 +1,14 @@
+import "./Editor.css";
+
 const Editor = () => {
-  return <h1>Editor Goes Here</h1>;
+  return (
+    <div
+      id="editor-wrapper"
+      className="text-2xl text-accentOne h-full bg-secondTransparent3 shadow-md"
+    >
+      <textarea id="editing-area" className="bg-transparent"></textarea>
+    </div>
+  );
 };
 
 export default Editor;

@@ -48,9 +48,12 @@ const HomePage = () => {
   };
 
   return (
-    <div className="bg-main h-screen">
-      <div className="grid grid-rows-6 h-full overflow-auto pr-80">
-        <div className="flex flex-row justify-between pt-5 pl-5 font-jetbrains row-start-1 row-end-2">
+    <div id="full-screen" className="bg-main h-screen">
+      <div id="page-body" className=" flex flex-col h-full overflow-auto pr-80">
+        <div
+          id="prompt-area"
+          className="flex flex-row h-16 ml-10 mr-10 justify-between pt-10 mb-10 font-jetbrains"
+        >
           <CommandPrompt location={location} setLocation={setLocation} />
 
           <div className="pr-5">
@@ -70,25 +73,24 @@ const HomePage = () => {
             </button>
           </div>
         </div>
-
         <div
-          id="wrapper"
-          className=" row-start-2bg-secondTransparent2 m-10 shadow-md "
+          id="container"
+          className="h-full mb-10 ml-10 mr-10 mt-5 bg-secondTransparent2 shadow-lg"
         >
-          <div>
+          <div id="forms-and-notes" className="flex">
             <Switch>
               <Route exact path="/home">
-                <div className="overflow-auto">
+                <div className="w-full">
                   <TextEditor />
                 </div>
               </Route>
               <Route path="/home/folder/edit/:id">
-                <div>
+                <div className="w-1/2 m-auto pb-10">
                   <EditFolderForm />
                 </div>
               </Route>
               <Route path="/home/folder/new">
-                <div>
+                <div className="w-1/2 m-auto pb-10">
                   <NewFolderForm />
                 </div>
               </Route>

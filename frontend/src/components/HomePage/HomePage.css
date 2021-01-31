@@ -22,3 +22,18 @@
 #logout-div {
   box-shadow: 2px -2px 5px #282a36;
 }
+
+#container {
+  display: flex;
+  border: 1px solid #bd93f9;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5em;
+  padding-top: 4em;
+}
+
+#forms-and-notes {
+  height: 100%;
+  width: 95%;
+  overflow-y: auto;
+}
