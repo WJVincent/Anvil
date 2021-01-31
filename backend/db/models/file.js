@@ -6,7 +6,6 @@ module.exports = (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       content: DataTypes.TEXT,
       folderId: DataTypes.INTEGER,
-      fileTypeId: DataTypes.INTEGER,
     },
     {}
   );
@@ -19,7 +18,6 @@ module.exports = (sequelize, DataTypes) => {
 
     File.belongsToMany(models.Tag, FileTagMap);
     File.belongsTo(models.Folder, { foreignKey: "folderId" });
-    File.belongsTo(models.FileType, { foreignKey: "fileTypeId" });
   };
   return File;
 };
