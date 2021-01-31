@@ -12,9 +12,8 @@ module.exports = {
         type: Sequelize.STRING(50),
         allowNull: false,
       },
-      url: {
-        type: Sequelize.STRING(200),
-        allowNull: false,
+      content: {
+        type: Sequelize.TEXT,
       },
       folderId: {
         type: Sequelize.INTEGER,

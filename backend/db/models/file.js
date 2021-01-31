@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     "File",
     {
       name: DataTypes.STRING,
-      url: DataTypes.STRING,
+      content: DataTypes.TEXT,
       folderId: DataTypes.INTEGER,
       fileTypeId: DataTypes.INTEGER,
     },
