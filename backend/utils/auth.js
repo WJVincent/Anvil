@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const { jwtConfig } = require("../config");
-const { User, Folder, Category, File, FileType, Tag } = require("../db/models");
+const { User, Folder, Category, File, Tag } = require("../db/models");
 
 const { secret, expiresIn } = jwtConfig;
 
@@ -41,7 +41,6 @@ const restoreUser = (req, res, next) => {
               {
                 model: File,
                 includes: [
-                  { model: FileType },
                   {
                     model: Tag,
                     through: { attributes: [] },

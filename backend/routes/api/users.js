@@ -1,14 +1,7 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const { setTokenCookie } = require("../../utils/auth");
-const {
-  User,
-  Folder,
-  File,
-  Category,
-  FileType,
-  Tag,
-} = require("../../db/models");
+const { User, Folder, File, Category, Tag } = require("../../db/models");
 const validateSignup = require("../../utils/validators/validateSignup");
 
 const router = express.Router();
@@ -27,7 +20,6 @@ router.get(
             {
               model: File,
               includes: [
-                { model: FileType },
                 {
                   model: Tag,
                   through: { attributes: [] },

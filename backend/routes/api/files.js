@@ -1,7 +1,7 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 
-const { Folder } = require("../../db/models");
+const { File } = require("../../db/models");
 const { requireAuth } = require("../../utils/auth");
 const router = express.Router();
 
@@ -9,7 +9,7 @@ router.post(
   "/",
   requireAuth,
   asyncHandler(async (req, res) => {
-    let { name, userId, categoryId } = req.body;
+    let { name, content } = req.body;
 
     userId = Number(userId);
     categoryId = Number(categoryId);
