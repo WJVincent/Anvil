@@ -1,0 +1,24 @@
+#folders::-webkit-scrollbar {
+  width: 12px;
+  padding-right: -5px; /* width of the entire scrollbar */
+}
+#folders::-webkit-scrollbar-track {
+  background: #44475a; /* color of the tracking area */
+}
+#folders::-webkit-scrollbar-thumb {
+  background-color: #bd93f9; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 2px solid #282a36; /* creates padding around scroll thumb */
+}
+
+#logo-div {
+  box-shadow: 2px 2px 5px #282a36;
+}
+
+#folders {
+  box-shadow: inset 1px 0px 5px #282a36;
+}
+
+#logout-div {
+  box-shadow: 2px -2px 5px #282a36;
+}
