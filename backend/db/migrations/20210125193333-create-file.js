@@ -20,11 +20,6 @@ module.exports = {
         allowNull: false,
         references: { model: "Folders" },
       },
-      fileTypeId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: "FileTypes" },
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
