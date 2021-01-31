@@ -1,12 +1,1 @@
-#editor-div::-webkit-scrollbar {
-  width: 12px;
-  padding-right: -5px; /* width of the entire scrollbar */
-}
-#editor-div::-webkit-scrollbar-track {
-  background: #44475a; /* color of the tracking area */
-}
-#editor-div::-webkit-scrollbar-thumb {
-  background-color: #bd93f9; /* color of the scroll thumb */
-  border-radius: 20px; /* roundness of the scroll thumb */
-  border: 1px solid #282a36; /* creates padding around scroll thumb */
-}
+/* Scrollbar feature will go here */
