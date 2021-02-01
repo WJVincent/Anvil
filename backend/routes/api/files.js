@@ -1,7 +1,7 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 
-const { File } = require("../../db/models");
+const { File, Folder } = require("../../db/models");
 const { requireAuth } = require("../../utils/auth");
 const router = express.Router();
 
@@ -9,17 +9,19 @@ router.post(
   "/",
   requireAuth,
   asyncHandler(async (req, res) => {
-    let { name, content } = req.body;
+    let { name, content, folderId, userId } = req.body;
+    folderId = Number(folderId);
 
-    userId = Number(userId);
-    categoryId = Number(categoryId);
-
-    const newFolder = await Folder.create({
+    const newFile = await File.create({
       name,
-      userId,
-      categoryId,
+      content,
+      folderId,
     });
-    res.json(newFolder);
+
+    const updatedFolders = await Folder.findAll({
+      where: { userId: Number(userId), include: { model: File } },
+    });
+    res.json(updatedFolders);
   })
 );
 
@@ -27,19 +29,21 @@ router.put(
   "/:id",
   requireAuth,
   asyncHandler(async (req, res) => {
-    const folderId = await parseInt(req.params.id, 10);
-    const { name, categoryId, userId } = req.body;
+    const fileId = await parseInt(req.params.id, 10);
+    const { name, content, userId } = req.body;
 
-    const folder = await Folder.findByPk(folderId);
+    const file = await File.findByPk(fileId);
 
-    if (name !== "") folder.name = name;
-    if (categoryId !== "") folder.categoryId = categoryId;
+    file.name = name;
+    file.content = content;
 
-    await folder.save();
+    await file.save();
 
-    const folders = await Folder.findAll({ where: { userId: Number(userId) } });
-
-    res.json(folders);
+    const updatedFolders = await Folder.findAll({
+      where: { userId: Number(userId) },
+      include: { model: File },
+    });
+    res.json(updatedFolders);
   })
 );
 
@@ -47,14 +51,16 @@ router.delete(
   "/:id",
   requireAuth,
   asyncHandler(async (req, res) => {
-    const folderId = await parseInt(req.params.id, 10);
+    const fileId = await parseInt(req.params.id, 10);
     const { userId } = req.body;
+    const file = await File.findByPk(fileId);
+    await file.destroy();
 
-    const folder = await Folder.findByPk(folderId);
-    await folder.destroy();
-
-    const folders = await Folder.findAll({ where: { userId: Number(userId) } });
-    res.json(folders);
+    const updatedFolders = await Folder.findAll({
+      where: { userId: Number(userId) },
+      include: { model: File },
+    });
+    res.json(updatedFolders);
   })
 );
 

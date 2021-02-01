@@ -1,5 +1,5 @@
 import { Switch, Route } from "react-router-dom";
-import { EditFolderForm, NewFolderForm } from "../../Forms";
+import { EditFolderForm, NewFolderForm, CreateFileForm } from "../../Forms";
 import TextEditor from "../Editor";
 
 const MainBody = () => {
@@ -20,6 +20,9 @@ const MainBody = () => {
           <div className="w-1/2 m-auto pb-10">
             <NewFolderForm />
           </div>
+        </Route>
+        <Route path="/home/file/new">
+          <CreateFileForm />
         </Route>
       </Switch>
     </div>
